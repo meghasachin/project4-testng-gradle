@@ -22,8 +22,6 @@ public class GeometryTest {
 		float width = 4;
 		float height = 6;
 		float result = testObject.areaRect(width, height);
-		System.out.println("Test result "+result);
-		System.out.println("Test result "+new Float(result).floatValue());
 		Assert.assertEquals(result, new Float(24).floatValue(), "Test area of rectangle with even width/4 and height/6");
 		Assert.assertEquals(new Float(result).floatValue(), 24.0f, "Test area of rectangle with even width/4 and height/6");
 	}
@@ -71,10 +69,55 @@ public class GeometryTest {
 	/*********************************************************************************************************/
 	/*                                 			PerimeterRect												 */
 	/*********************************************************************************************************/
+	// test perimeter of rectangle with even width and height	
 	@Test()
-	public void testPerimeterRect() {
-		
+	public void testPerimeterRect_TC_1() {
+		float width = 4;
+		float height = 6;
+		float result = testObject.perimeterRect(width, height);
+		Assert.assertEquals(result, new Float(20).floatValue(), "Test perimeter of rectangle with even width/4 and height/6");
+		Assert.assertEquals(new Float(result).floatValue(), 20f, "Test perimeter of rectangle with even width/4 and height/6");		
 	}
+	
+	// test area of rectangle with odd width and height
+	@Test()
+	public void testPerimeterRect_TC_2() {
+		float width = 5;
+		float height = 7;
+		float result = testObject.perimeterRect(width, height);
+		Assert.assertEquals(result, new Float(24).floatValue(), "Test perimeter of rectangle with even width/5 and height/7");
+		Assert.assertEquals(new Float(result).floatValue(), 24f, "Test perimeter of rectangle with even width/5 and height/7");		
+	}
+	
+	// test area of rectangle with decimal width and whole height
+	@Test()
+	public void testPerimeterRect_TC_3() {
+		float width = 5.5f;
+		float height = 7;
+		float result = testObject.perimeterRect(width, height);
+		Assert.assertEquals(result, new Float(25).floatValue(), "Test perimeter of rectangle with even width/5.5 and height/7");
+		Assert.assertEquals(new Float(result).floatValue(), 25f, "Test perimeter of rectangle with even width/5.5 and height/7");		
+	}
+	
+	// test area of rectangle with decimal width and whole height
+	@Test()
+	public void testPerimeterRect_TC_4() {
+		float width = 5f;
+		float height = 7.5f;
+		float result = testObject.perimeterRect(width, height);
+		Assert.assertEquals(result, new Float(25).floatValue(), "Test perimeter of rectangle with even width/5 and height/7.5");
+		Assert.assertEquals(new Float(result).floatValue(), 25f, "Test perimeter of rectangle with even width/5 and height/7.5");		
+	}
+	
+	// test area of rectangle with whole width and zero height
+	@Test()
+	public void testPerimeterRect_TC_5() {
+		float width = 5f;
+		float height = 0f;
+		float result = testObject.perimeterRect(width, height);
+		Assert.assertEquals(result, new Float(10).floatValue(), "Test perimeter of rectangle with even width/5 and height/0");
+		Assert.assertEquals(new Float(result).floatValue(), 10f, "Test perimeter of rectangle with even width/5 and height/0");		
+	}	
 	
 	@Test()
 	public void testVolumeSphere() {

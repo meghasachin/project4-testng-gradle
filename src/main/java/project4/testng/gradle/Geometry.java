@@ -6,7 +6,7 @@ public class Geometry {
 	}
 	
 	public float perimeterRect(float width, float height) {
-		return width * height;
+		return 0;
 	}
 	
 	public float volumeSphere(float radius) {
