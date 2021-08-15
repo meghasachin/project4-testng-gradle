@@ -21,6 +21,6 @@ public class Geometry {
 	}
 	
 	public float surfaceAreaSphere(float radius) {
-		return 0;
+		return 4 * PI * radius * radius;
 	}
 }

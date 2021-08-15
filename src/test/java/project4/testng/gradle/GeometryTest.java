@@ -195,7 +195,7 @@ public class GeometryTest {
 		float radius = 4;
 		float result = testObject.surfaceAreaSphere(radius);
 		
-        BigDecimal expectedBigDecimal = new BigDecimal(201.6); // calculated with PI = 3.14
+        BigDecimal expectedBigDecimal = new BigDecimal(200.96); // calculated with PI = 3.14
         expectedBigDecimal = expectedBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
         
         BigDecimal resultBigDecimal = new BigDecimal(result); // given by function
