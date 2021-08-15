@@ -185,9 +185,67 @@ public class GeometryTest {
 	
         Assert.assertEquals(resultBigDecimal.floatValue(), expectedBigDecimal.floatValue(), 0.1f, "Test volume of sphere with even radius/0");
 	}	
-	
+
+	/*********************************************************************************************************/
+	/*                                 			SurefaceAreaSphere										 	 */
+	/*********************************************************************************************************/
+	// test Volume of Sphere with even radius
 	@Test()
-	public void testSurfaceAreaSphere() {
+	public void testSurfaceAreaSphere_TC_1() {
+		float radius = 4;
+		float result = testObject.surfaceAreaSphere(radius);
 		
+        BigDecimal expectedBigDecimal = new BigDecimal(201.6); // calculated with PI = 3.14
+        expectedBigDecimal = expectedBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+        
+        BigDecimal resultBigDecimal = new BigDecimal(result); // given by function
+        resultBigDecimal = resultBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+	
+        Assert.assertEquals(resultBigDecimal.floatValue(), expectedBigDecimal.floatValue(), 0.1f, "Test sureface area of sphere with even radius/4");		
 	}
+	
+	// test Volume of Sphere with odd radius
+	@Test()
+	public void testSurfaceAreaSphere_TC_2() {
+		float radius = 5;
+		float result = testObject.surfaceAreaSphere(radius);
+		
+        BigDecimal expectedBigDecimal = new BigDecimal(314); // calculated with PI = 3.14
+        expectedBigDecimal = expectedBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+        
+        BigDecimal resultBigDecimal = new BigDecimal(result); // given by function
+        resultBigDecimal = resultBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+	
+        Assert.assertEquals(resultBigDecimal.floatValue(), expectedBigDecimal.floatValue(), 0.1f, "Test sureface area of sphere with odd radius/5");		
+	}
+	
+	// test Volume of Sphere with decimal radius
+	@Test()
+	public void testSurfaceAreaSphere_TC_3() {
+		float radius = 4.5f;
+		float result = testObject.surfaceAreaSphere(radius);
+		
+        BigDecimal expectedBigDecimal = new BigDecimal(254.34); // calculated with PI = 3.14
+        expectedBigDecimal = expectedBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+        
+        BigDecimal resultBigDecimal = new BigDecimal(result); // given by function
+        resultBigDecimal = resultBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+	
+        Assert.assertEquals(resultBigDecimal.floatValue(), expectedBigDecimal.floatValue(), 0.1f, "Test sureface area of sphere with odd radius/4.5");		
+	}
+	
+	// test Volume of Sphere with zero radius
+	@Test()
+	public void testSurfaceAreaSphere_TC_4() {
+		float radius = 0f;
+		float result = testObject.surfaceAreaSphere(radius);
+		
+        BigDecimal expectedBigDecimal = new BigDecimal(0); // calculated with PI = 3.14
+        expectedBigDecimal = expectedBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+        
+        BigDecimal resultBigDecimal = new BigDecimal(result); // given by function
+        resultBigDecimal = resultBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+	
+        Assert.assertEquals(resultBigDecimal.floatValue(), expectedBigDecimal.floatValue(), 0.1f, "Test sureface area of sphere with radius/0");		
+	}	
 }
