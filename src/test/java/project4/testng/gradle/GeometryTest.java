@@ -1,5 +1,8 @@
 package project4.testng.gradle;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -127,35 +130,60 @@ public class GeometryTest {
 	public void testVolumeSphere_TC_1() {
 		float radius = 4;
 		float result = testObject.volumeSphere(radius);
-		Assert.assertEquals(result, new Float(268.08257).floatValue(), "Test volume of sphere with even radius/4");
-		Assert.assertEquals(new Float(result).floatValue(), 268.08257f, "Test volume of sphere with even radius/4");
+		
+        BigDecimal expectedBigDecimal = new BigDecimal(267.2768); // calculated with 4/3 = 1.33
+        expectedBigDecimal = expectedBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+        
+        BigDecimal resultBigDecimal = new BigDecimal(result); // given by function
+        resultBigDecimal = resultBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+	
+        Assert.assertEquals(resultBigDecimal.floatValue(), expectedBigDecimal.floatValue(), 0.1f, "Test volume of sphere with even radius/4");
 	}
 	
 	// test Volume of Sphere with even radius
 	@Test()
 	public void testVolumeSphere_TC_2() {
-		float radius = 5;
+		float radius = 5;		
 		float result = testObject.volumeSphere(radius);
-		Assert.assertEquals(result, new Float(523.59878).floatValue(), "Test volume of sphere with even radius/5");
-		Assert.assertEquals(new Float(result).floatValue(), 268.08257f, "Test volume of sphere with even radius/5");
+		
+        BigDecimal expectedBigDecimal = new BigDecimal(522.025); // calculated with 4/3 = 1.33
+        expectedBigDecimal = expectedBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+        
+        BigDecimal resultBigDecimal = new BigDecimal(result); // given by function
+        resultBigDecimal = resultBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+	
+        Assert.assertEquals(resultBigDecimal.floatValue(), expectedBigDecimal.floatValue(), 0.1f, "Test volume of sphere with even radius/5");
 	}
 	
 	// test Volume of Sphere with decimal radius
 	@Test()
 	public void testVolumeSphere_TC_3() {
-		float radius = 5.5f;
+		float radius = 5.5f;		
 		float result = testObject.volumeSphere(radius);
-		Assert.assertEquals(result, new Float(696.90997).floatValue(), "Test volume of sphere with even radius/5.5");
-		Assert.assertEquals(new Float(result).floatValue(), 696.90997f, "Test volume of sphere with even radius/5.5");
+		
+        BigDecimal expectedBigDecimal = new BigDecimal(694.815275); // calculated with 4/3 = 1.33
+        expectedBigDecimal = expectedBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+        
+        BigDecimal resultBigDecimal = new BigDecimal(result); // given by function
+        resultBigDecimal = resultBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+	
+        Assert.assertEquals(resultBigDecimal.floatValue(), expectedBigDecimal.floatValue(), 0.1f, "Test volume of sphere with even radius/5.5");
+		
 	}
 	
 	// test Volume of Sphere with zero radius
 	@Test()
 	public void testVolumeSphere_TC_4() {
-		float radius = 0f;
+		float radius = 0f;		
 		float result = testObject.volumeSphere(radius);
-		Assert.assertEquals(result, new Float(0).floatValue(), "Test volume of sphere with even radius/0");
-		Assert.assertEquals(new Float(result).floatValue(), 0f, "Test volume of sphere with even radius/0");
+		
+        BigDecimal expectedBigDecimal = new BigDecimal(0); // calculated with 4/3 = 1.33
+        expectedBigDecimal = expectedBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+        
+        BigDecimal resultBigDecimal = new BigDecimal(result); // given by function
+        resultBigDecimal = resultBigDecimal.setScale(2, RoundingMode.HALF_UP); // expected two decimal round up
+	
+        Assert.assertEquals(resultBigDecimal.floatValue(), expectedBigDecimal.floatValue(), 0.1f, "Test volume of sphere with even radius/0");
 	}	
 	
 	@Test()
