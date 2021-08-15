@@ -2,11 +2,11 @@ package project4.testng.gradle;
 
 public class Geometry {
 	public float areaRect(float width, float height) {
-		return 0;
+		return width * height;
 	}
 	
 	public float perimeterRect(float width, float height) {
-		return 0;
+		return width * height;
 	}
 	
 	public float volumeSphere(float radius) {
