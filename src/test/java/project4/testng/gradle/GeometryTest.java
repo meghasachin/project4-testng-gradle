@@ -118,11 +118,45 @@ public class GeometryTest {
 		Assert.assertEquals(result, new Float(10).floatValue(), "Test perimeter of rectangle with even width/5 and height/0");
 		Assert.assertEquals(new Float(result).floatValue(), 10f, "Test perimeter of rectangle with even width/5 and height/0");		
 	}	
-	
+
+	/*********************************************************************************************************/
+	/*                                 			VolumeRect												 	 */
+	/*********************************************************************************************************/
+	// test Volume of Sphere with even radius
 	@Test()
-	public void testVolumeSphere() {
-		
+	public void testVolumeSphere_TC_1() {
+		float radius = 4;
+		float result = testObject.volumeSphere(radius);
+		Assert.assertEquals(result, new Float(268.08257).floatValue(), "Test volume of sphere with even radius/4");
+		Assert.assertEquals(new Float(result).floatValue(), 268.08257f, "Test volume of sphere with even radius/4");
 	}
+	
+	// test Volume of Sphere with even radius
+	@Test()
+	public void testVolumeSphere_TC_2() {
+		float radius = 5;
+		float result = testObject.volumeSphere(radius);
+		Assert.assertEquals(result, new Float(523.59878).floatValue(), "Test volume of sphere with even radius/5");
+		Assert.assertEquals(new Float(result).floatValue(), 268.08257f, "Test volume of sphere with even radius/5");
+	}
+	
+	// test Volume of Sphere with decimal radius
+	@Test()
+	public void testVolumeSphere_TC_3() {
+		float radius = 5.5f;
+		float result = testObject.volumeSphere(radius);
+		Assert.assertEquals(result, new Float(696.90997).floatValue(), "Test volume of sphere with even radius/5.5");
+		Assert.assertEquals(new Float(result).floatValue(), 696.90997f, "Test volume of sphere with even radius/5.5");
+	}
+	
+	// test Volume of Sphere with zero radius
+	@Test()
+	public void testVolumeSphere_TC_4() {
+		float radius = 0f;
+		float result = testObject.volumeSphere(radius);
+		Assert.assertEquals(result, new Float(0).floatValue(), "Test volume of sphere with even radius/0");
+		Assert.assertEquals(new Float(result).floatValue(), 0f, "Test volume of sphere with even radius/0");
+	}	
 	
 	@Test()
 	public void testSurfaceAreaSphere() {
